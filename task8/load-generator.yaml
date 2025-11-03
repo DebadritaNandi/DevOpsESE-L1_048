@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: load-generator
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    command:
+      - /bin/sh
+      - -c
+      - "while true; do wget -q -O- http://iot-sensor-service.default.svc.cluster.local:80; done"
