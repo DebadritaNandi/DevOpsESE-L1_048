@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iot-sensor-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iot-sensor-api
+  template:
+    metadata:
+      labels:
+        app: iot-sensor-api
+    spec:
+      containers:
+      - name: iot-sensor-api
+        image: nginx  # using nginx as a simple app placeholder
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "200m"
+            memory: "256Mi"
